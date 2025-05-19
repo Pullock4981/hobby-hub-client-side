@@ -25,7 +25,7 @@ const Login = () => {
                                 <button className="btn btn-block bg-amber-400 font-bold mb-2">Log in</button>
                             </div>
                             <p>
-                                New to this site? <Link to="/signUp" className="link link-hover underline text-blue-500 font-semibold">Register here</Link>
+                                New to this site? <Link to="/register" className="link link-hover underline text-blue-500 font-semibold">Register here</Link>
                             </p>
                         </form>
                         {/* Google */}
