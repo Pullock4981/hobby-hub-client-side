@@ -7,11 +7,21 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
+import Root from './Components/Root/Root';
+import ErrorComponent from './Components/ErrorComponent/ErrorComponent';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div className='text-2xl font-bold text-center'>Welcome to HobbyHub</div>,
+    Component: Root,
+    errorElement: <ErrorComponent></ErrorComponent>,
+    children: [
+      {
+        index: true,
+        path: "/",
+        element: <div>Home</div>,
+      }
+    ]
   },
 ]);
 
