@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import './NavBar.css';
 import logo from '../../assets/Hobby Hub.png'
 
@@ -44,8 +44,12 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn bg-[#fdc323] font-bold">Login</button>
-                    <button className="btn bg-[#fdc323] font-bold">Register</button>
+                    <Link to='/login'>
+                        <button className="btn bg-[#fdc323] font-bold">Login</button>
+                    </Link>
+                    <Link to='/register'>
+                        <button className="btn bg-[#fdc323] font-bold">Register</button>
+                    </Link>
                 </div>
             </div>
         </div>

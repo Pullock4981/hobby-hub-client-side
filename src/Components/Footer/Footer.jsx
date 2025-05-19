@@ -9,8 +9,8 @@ const Footer = () => {
             <footer className="footer footer-horizontal footer-center bg-black text-primary-content p-10">
                 <aside>
                     <img src={logo}
-                    className='h-32'    alt="Hobby Hub Logo" />
-                    <p className="font-bold text-xl">
+                    className='md:h-32 h-16'    alt="Hobby Hub Logo" />
+                    <p className="font-bold md:text-xl">
                         HobbyHub Ltd.
                         <br />
                         Providing reliable tech since 2025
@@ -20,16 +20,16 @@ const Footer = () => {
                 <nav>
                     <div className="grid grid-flow-col gap-4">
                         <a href="https://www.facebook.com/mahmudashik.pullock" target="_blank">
-                            <FaFacebookSquare className="text-3xl text-amber-400" />
+                            <FaFacebookSquare className="md:text-3xl text-xl text-amber-400" />
                         </a>
                         <a href="https://www.youtube.com/@mrashik4911" target="_blank">
-                            <IoLogoYoutube className="text-3xl text-amber-400" />
+                            <IoLogoYoutube className="md:text-3xl text-xl text-amber-400" />
                         </a>
                         <a href="https://github.com/Pullock4981" target="_blank">
-                            <FaGithub className="text-3xl text-amber-400" />
+                            <FaGithub className="md:text-3xl text-xl text-amber-400" />
                         </a>
                         <a href="https://www.linkedin.com/in/ashikpullock/" target="_blank">
-                            <FaLinkedin className="text-3xl text-amber-400" />
+                            <FaLinkedin className="md:text-3xl text-xl text-amber-400" />
                         </a>
                     </div>
                 </nav>

@@ -13,6 +13,8 @@ import Home from './Pages/Home/Home';
 import AllGroups from './Pages/AllGroups/AllGroups';
 import CreateGroup from './Pages/CreateGroup/CreateGroup';
 import MyGroup from './Pages/MyGroup/MyGroup';
+import Login from './Pages/Home/Login';
+import Register from './Pages/Home/Register';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,14 @@ const router = createBrowserRouter([
       {
         path: "/myGroup",
         Component: MyGroup
+      },
+      {
+        path: "/login",
+        Component: Login
+      },
+      {
+        path: "/register",
+        Component: Register
       }
     ]
   },
