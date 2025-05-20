@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import './NavBar.css';
 import logo from '../../assets/Hobby Hub.png'
+import { AuthContext } from '../../Contexts/AuthContext';
 
 const NavBar = () => {
     // nav Links here
@@ -15,8 +16,14 @@ const NavBar = () => {
         </div>
 
     </>
+
+    // user info find from context
+    const userInfo = use(AuthContext);
+    console.log(userInfo);
+
+
     return (
-        <div className='sticky top-0'>
+        <div className=''>
             <div className="navbar bg-base-100 shadow-sm  md:px-16 px-4">
                 <div className="navbar-start">
                     <div className="dropdown">

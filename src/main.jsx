@@ -15,6 +15,7 @@ import CreateGroup from './Pages/CreateGroup/CreateGroup';
 import MyGroup from './Pages/MyGroup/MyGroup';
 import Login from './Pages/Home/Login';
 import Register from './Pages/Home/Register';
+import FirebaseAuthProvider from './Contexts/FirebaseAuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <FirebaseAuthProvider>
+      <RouterProvider router={router} />
+    </FirebaseAuthProvider>
   </StrictMode>,
 )
