@@ -3,6 +3,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 // const MyGroup = () => {
 //     return (
@@ -42,7 +43,7 @@ const MyGroup = () => {
     }, [user]);
 
     // Delete handler
-    const handleDelete = id => {
+    const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -51,15 +52,16 @@ const MyGroup = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then(result => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${id}`, {
+                fetch(`http://localhost:3000/groups/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            setMyGroups(prev => prev.filter(group => group._id !== id));
+                            setMyGroups(prev => prev.filter(group => group._id !== _id));
                             Swal.fire('Deleted!', 'Your group has been deleted.', 'success');
                         }
+                        console.log("after delete", data);
                     });
             }
         });
@@ -96,12 +98,13 @@ const MyGroup = () => {
                                     <td>{group.startDate}</td>
                                     <td>{group.location}</td>
                                     <td>
-                                        <button
-                                            onClick={() => window.location.href = `/updateGroup/${group._id}`}
-                                            className="btn btn-sm btn-warning mr-2"
-                                        >
-                                            Update
-                                        </button>
+                                        <Link to={`/updateGroup/${group._id}`}>
+                                            <button
+                                                className="btn btn-sm btn-warning mr-2"
+                                            >
+                                                Update
+                                            </button>
+                                        </Link>
                                         <button
                                             onClick={() => handleDelete(group._id)}
                                             className="btn btn-sm btn-error"
