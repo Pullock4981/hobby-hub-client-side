@@ -16,6 +16,7 @@ import MyGroup from './Pages/MyGroup/MyGroup';
 import Login from './Pages/Home/Login';
 import Register from './Pages/Home/Register';
 import FirebaseAuthProvider from './Contexts/FirebaseAuthProvider';
+import GroupDetails from './Pages/GroupDetails/GroupDetails';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
+        loader: () => fetch('http://localhost:3000/groups'),
         Component: Home
       },
       {
@@ -47,6 +49,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register
+      },
+      {
+        path: "/groupDetails/:id",
+        Component: GroupDetails
       }
     ]
   },
