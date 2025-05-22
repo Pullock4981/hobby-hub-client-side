@@ -6,7 +6,7 @@ const GroupCard = ({ group }) => {
     const { groupName, description } = group;
     return (
         <div className='flex justify-center md:mx-16 mx-4 my-10'>
-            <div className="card card-border border-2 bg-amber-100 w-96">
+            <div className="card card-border border-2 bg-amber-100 w-full">
                 <div className="card-body">
                     <h2 className="card-title">{groupName}</h2>
                     <p>{description}</p>

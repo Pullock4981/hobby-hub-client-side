@@ -14,7 +14,7 @@ const Home = () => {
                 <div>
                     <Banner></Banner>
                 </div>
-                <div>
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:max-w-7xl mx-auto'>
                     {
                         groupData.map(group => (
                             <GroupCard key={group._id} group={group} />

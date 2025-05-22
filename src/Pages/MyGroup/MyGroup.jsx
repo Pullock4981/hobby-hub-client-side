@@ -1,14 +1,11 @@
-// import React from 'react';
 
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Contexts/AuthContext";
-import Swal from "sweetalert2";
-import { Link } from "react-router";
 
 // import { useContext, useEffect, useState } from "react";
 // import { AuthContext } from "../../Contexts/AuthContext";
 // import Swal from "sweetalert2";
 // import { Link } from "react-router";
+
+
 
 
 // const MyGroup = () => {
@@ -109,41 +106,49 @@ import { Link } from "react-router";
 
 // export default MyGroup;
 
+
 // import { useContext, useEffect, useState } from "react";
 // import { AuthContext } from "../../Contexts/AuthContext";
 // import Swal from "sweetalert2";
-// import { Link } from "react-router-dom"; // fixed from 'react-router'
+// import { Link } from "react-router-dom"; // Corrected router import
+
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../Contexts/AuthContext";
+import Swal from "sweetalert2";
+import { Link } from "react-router";
 
 const MyGroup = () => {
     const { user } = useContext(AuthContext);
     const [myGroups, setMyGroups] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // Fetch only groups created by the logged-in user
+    // Fetch groups created by the current user only
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/groups/${user.email}`)
+            fetch(`http://localhost:3000/groups?creatorEmail=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyGroups(data);
                     setLoading(false);
                 })
                 .catch(err => {
-                    console.error("Error fetching user's groups:", err);
+                    console.error("Error fetching groups:", err);
                     setLoading(false);
                 });
         }
     }, [user]);
 
-    // Handle group deletion
+    // Delete a group after confirmation
     const handleDelete = (_id) => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "This action cannot be undone!",
+            text: "This action cannot be undone.",
             icon: 'warning',
             showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
             confirmButtonText: 'Yes, delete it!'
-        }).then(result => {
+        }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:3000/groups/${_id}`, {
                     method: 'DELETE'
@@ -152,25 +157,31 @@ const MyGroup = () => {
                     .then(data => {
                         if (data.deletedCount > 0) {
                             setMyGroups(prev => prev.filter(group => group._id !== _id));
-                            Swal.fire('Deleted!', 'The group has been removed.', 'success');
+                            Swal.fire('Deleted!', 'Group has been removed.', 'success');
                         }
                     })
-                    .catch(err => console.error("Delete error:", err));
+                    .catch(err => {
+                        console.error("Deletion failed:", err);
+                        Swal.fire('Error!', 'Failed to delete the group.', 'error');
+                    });
             }
         });
     };
 
-    if (loading) return <div className="text-center mt-10">Loading...</div>;
+    if (loading) {
+        return <div className="text-center mt-10 text-lg font-medium">Loading...</div>;
+    }
 
     return (
         <div className="max-w-6xl mx-auto px-4 py-6">
-            <h2 className="text-3xl font-semibold mb-6">My Groups</h2>
+            <h2 className="text-3xl font-semibold mb-6">My Created Groups</h2>
+
             {myGroups.length === 0 ? (
-                <p>You haven't created any groups yet.</p>
+                <p className="text-gray-600">You haven’t created any groups yet.</p>
             ) : (
                 <div className="overflow-x-auto">
-                    <table className="table w-full">
-                        <thead>
+                    <table className="table w-full border border-gray-300">
+                        <thead className="bg-gray-100">
                             <tr>
                                 <th>#</th>
                                 <th>Group Name</th>

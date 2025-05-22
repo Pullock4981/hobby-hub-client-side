@@ -1,11 +1,12 @@
 import React from 'react';
+import SliderComponent from './SliderComponent';
+// import SliderComponent from './SliderComponent';
 
 const Banner = () => {
     return (
         <div>
-            <h1>
-                This is the Banner
-            </h1>
+            {/* <SliderComponent></SliderComponent> */}
+            <SliderComponent></SliderComponent>
         </div>
     );
 };
