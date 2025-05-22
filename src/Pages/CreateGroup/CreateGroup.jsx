@@ -42,10 +42,27 @@ const CreateGroup = () => {
                         <label className="label">Group Name</label>
                         <input type="text" name='groupName' className="input w-full" placeholder="Group Name" />
                     </fieldset>
-                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                    {/* <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label">Hobby Category</label>
                         <input type="text" name='hobbyCategory' className="input w-full" placeholder="Select your Category" />
+                    </fieldset> */}
+
+                    <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
+                        <label className="label">Hobby Category</label>
+                        <select name="hobbyCategory" className="select select-bordered w-full" defaultValue="">
+                            <option value="" disabled>Select your Category</option>
+                            <option value="Drawing & Painting">Drawing & Painting</option>
+                            <option value="Photography">Photography</option>
+                            <option value="Video Gaming">Video Gaming</option>
+                            <option value="Fishing">Fishing</option>
+                            <option value="Running">Running</option>
+                            <option value="Cooking">Cooking</option>
+                            <option value="Reading">Reading</option>
+                            <option value="Writing">Writing</option>
+                            {/* Add more options if needed */}
+                        </select>
                     </fieldset>
+
 
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                         <label className="label">Meeting Location</label>
