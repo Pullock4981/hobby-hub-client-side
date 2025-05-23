@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        loader: () => fetch('http://localhost:3000/groups'),
+        loader: () => fetch('https://hobby-hub-server-tawny.vercel.app/groups'),
         Component: Home
       },
       {
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/updateGroup/:id",
-        loader: ({ params }) => fetch(`http://localhost:3000/groups/${params.id}`),
+        loader: ({ params }) => fetch(`https://hobby-hub-server-tawny.vercel.app/groups/${params.id}`),
         Component: UpdateDetails
       }
     ]

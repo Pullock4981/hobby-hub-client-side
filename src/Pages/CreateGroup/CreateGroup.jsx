@@ -11,7 +11,7 @@ const CreateGroup = () => {
         console.log(newGroup);
 
         // send data to server
-        fetch('http://localhost:3000/groups', {
+        fetch('https://hobby-hub-server-tawny.vercel.app/groups', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -32,8 +32,8 @@ const CreateGroup = () => {
             })
     };
     return (
-        <div className='md:mx-20 mx-4'>
-            <h1 className='text-3xl font-bold text-center my-10'>
+        <div className='md:px-20 px-4 bg-[#E3F0E9]'>
+            <h1 className='text-3xl font-bold text-center py-10'>
                 Create a new group
             </h1>
             <form onSubmit={handleSubmit}>
@@ -100,8 +100,8 @@ const CreateGroup = () => {
                 </fieldset>
                 <div>
                     {/* create Button */}
-                    <div className="form-control my-6">
-                        <input type="submit" className="btn bg-[#fdc323] font-bold w-full" value="Create Group" />
+                    <div className="form-control py-6">
+                        <input type="submit" className="btn bg-[#2A9261] text-white font-bold w-full" value="Create Group" />
                     </div>
                 </div>
             </form>

@@ -16,7 +16,7 @@
 //     // Fetch only groups created by the logged-in user
 //     useEffect(() => {
 //         if (user?.email) {
-//             fetch(`http://localhost:3000/groups?creatorEmail=${user.email}`)
+//             fetch(`https://hobby-hub-server-tawny.vercel.app/groups?creatorEmail=${user.email}`)
 //                 .then(res => res.json())
 //                 .then(data => {
 //                     setMyGroups(data);
@@ -39,7 +39,7 @@
 //             confirmButtonText: 'Yes, delete it!'
 //         }).then(result => {
 //             if (result.isConfirmed) {
-//                 fetch(`http://localhost:3000/groups/${_id}`, {
+//                 fetch(`https://hobby-hub-server-tawny.vercel.app/groups/${_id}`, {
 //                     method: 'DELETE'
 //                 })
 //                     .then(res => res.json())
@@ -125,7 +125,7 @@ const MyGroup = () => {
     // Fetch groups created by the current user only
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:3000/groups?creatorEmail=${user.email}`)
+            fetch(`https://hobby-hub-server-tawny.vercel.app/groups?creatorEmail=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     setMyGroups(data);
@@ -150,7 +150,7 @@ const MyGroup = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/groups/${_id}`, {
+                fetch(`https://hobby-hub-server-tawny.vercel.app/groups/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -203,11 +203,11 @@ const MyGroup = () => {
                                     <td>{group.location}</td>
                                     <td>
                                         <Link to={`/updateGroup/${group._id}`}>
-                                            <button className="btn btn-sm btn-warning mr-2">Update</button>
+                                            <button className="btn btn-sm bg-[#2A9261] text-white mr-2">Update</button>
                                         </Link>
                                         <button
                                             onClick={() => handleDelete(group._id)}
-                                            className="btn btn-sm btn-error"
+                                            className="btn btn-sm bg-red-500 text-white"
                                         >
                                             Delete
                                         </button>

@@ -5,22 +5,6 @@ import { useParams } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Swal from "sweetalert2";
 
-// const GroupDetails = () => {
-//     return (
-//         <div>
-//             <h1>
-//                 This is the Group Details Page
-//             </h1>
-//         </div>
-//     );
-// };
-
-// export default GroupDetails;
-
-// import { useParams } from "react-router-dom";
-// import { useContext, useEffect, useState } from "react";
-// import { AuthContext } from "../../providers/AuthContext";
-// import Swal from "sweetalert2";
 
 const GroupDetails = () => {
     const { id } = useParams();
@@ -30,7 +14,7 @@ const GroupDetails = () => {
     const [joined, setJoined] = useState(false);
 
     useEffect(() => {
-        fetch(`http://localhost:3000/groups/${id}`)
+        fetch(`https://hobby-hub-server-tawny.vercel.app/groups/${id}`)
             .then(res => res.json())
             .then(data => {
                 setGroup(data);
@@ -50,7 +34,7 @@ const GroupDetails = () => {
             joinDate: new Date()
         };
 
-        fetch(`http://localhost:3000/groups`, {
+        fetch(`https://hobby-hub-server-tawny.vercel.app/groups`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(joinInfo),

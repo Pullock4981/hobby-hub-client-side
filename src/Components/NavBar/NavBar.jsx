@@ -116,14 +116,14 @@ const NavBar = () => {
                             </div>
                             <button
                                 onClick={handleSignOut}
-                                className="btn bg-amber-400 font-bold"
+                                className="btn bg-[#2A9261] text-white font-bold"
                             >
                                 Log out
                             </button>
                         </div>
                     ) : (
                         <Link to='/login'>
-                            <button className="btn bg-amber-400 font-bold">Log in</button>
+                            <button className="btn bg-[#2A9261] text-white font-bold">Log in</button>
                         </Link>
                     )
                 }

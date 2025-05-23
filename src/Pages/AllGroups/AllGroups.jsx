@@ -21,7 +21,7 @@ const AllGroups = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:3000/groups')
+        fetch('https://hobby-hub-server-tawny.vercel.app/groups')
             .then(res => res.json())
             .then(data => {
                 setGroups(data);
@@ -36,7 +36,7 @@ const AllGroups = () => {
     if (loading) return <div className="text-center mt-10">Loading...</div>;
 
     return (
-        <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="mx-auto bg-[#E3F0E9] px-4 md:px-36 py-6">
             <h2 className="text-3xl font-semibold mb-6">All Hobby Groups</h2>
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {groups.map(group => (
@@ -50,7 +50,7 @@ const AllGroups = () => {
                             <p><strong>Location:</strong> {group.location}</p>
                             <p><strong>Start Date:</strong> {group.startDate}</p>
                             <Link to={`/groupDetails/${group._id}`}>
-                                <button className="btn btn-primary mt-3 w-full">See More</button>
+                                <button className="btn bg-[#2A9261] text-white mt-3 w-full">See More</button>
                             </Link>
                         </div>
                     </div>
