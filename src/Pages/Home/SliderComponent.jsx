@@ -9,7 +9,7 @@ import SliderCard from './SliderCard';
 const sliderData = [
     {
         "_id": "1a2b3c4d5e6f7g8h9i0j",
-        "photo_URL": "https://example.com/images/painting-group.jpg",
+        "photo_URL": "https://i.ibb.co/hxN8xs4d/video-1.jpg",
         "name": "Creative Strokes",
         "member": 12,
         "category": "Drawing & Painting",
@@ -17,7 +17,7 @@ const sliderData = [
     },
     {
         "_id": "2b3c4d5e6f7g8h9i0j1a",
-        "photo_URL": "https://example.com/images/gamers-lounge.jpg",
+        "photo_URL": "https://i.ibb.co/0RkjdNmm/game-1.jpg",
         "name": "Gamers Lounge",
         "member": 20,
         "category": "Video Gaming",
@@ -25,7 +25,7 @@ const sliderData = [
     },
     {
         "_id": "3c4d5e6f7g8h9i0j1a2b",
-        "photo_URL": "https://example.com/images/photography-circle.jpg",
+        "photo_URL": "https://i.ibb.co/tT9GLnYr/photo-1.jpg",
         "name": "Shutter Circle",
         "member": 15,
         "category": "Photography",
@@ -33,7 +33,7 @@ const sliderData = [
     },
     {
         "_id": "4d5e6f7g8h9i0j1a2b3c",
-        "photo_URL": "https://example.com/images/book-club.jpg",
+        "photo_URL": "https://i.ibb.co/S4kLNXWx/book-1.jpg",
         "name": "Lit Minds",
         "member": 10,
         "category": "Reading",

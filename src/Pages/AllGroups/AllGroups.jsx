@@ -2,19 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import TypewriterComponent from "../../Components/TypewriterComponent/TypewriterComponent";
 
-// const AllGroups = () => {
-//     return (
-//         <div>
-//             <h1>All Groups</h1>
-//         </div>
-//     );
-// };
-
-// export default AllGroups;
-
-// import React, { useEffect, useState } from 'react';
-// import { Link } from 'react-router-dom';
 
 const AllGroups = () => {
     const [groups, setGroups] = useState([]);
@@ -41,8 +30,9 @@ const AllGroups = () => {
 
     return (
         <div className="mx-auto bg-[#E3F0E9] px-4 md:px-36 py-6">
-            <h2 className="text-3xl font-semibold mb-6">All Hobby Groups</h2>
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <TypewriterComponent></TypewriterComponent>
+            {/* <h2 className="text-3xl font-semibold mb-6">All Hobby Groups</h2> */}
+            <div className="grid gap-6 md:grid-cols-2 mt-4 lg:grid-cols-3">
                 {groups.map(group => (
                     <div key={group._id} className="card bg-base-100 shadow-xl">
                         <figure>
