@@ -18,6 +18,7 @@ import Register from './Pages/Home/Register';
 import FirebaseAuthProvider from './Contexts/FirebaseAuthProvider';
 import GroupDetails from './Pages/GroupDetails/GroupDetails';
 import UpdateDetails from './Pages/MyGroup/UpdateDetails';
+import PrivateRoute from './Components/Routes/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -37,11 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/createGroup",
-        Component: CreateGroup
+        // Component: CreateGroup
+        element: <PrivateRoute><CreateGroup /></PrivateRoute>
       },
       {
         path: "/myGroup",
-        Component: MyGroup
+        element: <PrivateRoute><MyGroup /></PrivateRoute>
       },
       {
         path: "/login",
@@ -53,12 +55,14 @@ const router = createBrowserRouter([
       },
       {
         path: "/groupDetails/:id",
-        Component: GroupDetails
+        // Component: GroupDetails
+        element: <PrivateRoute><GroupDetails /></PrivateRoute>
       },
       {
         path: "/updateGroup/:id",
         loader: ({ params }) => fetch(`https://hobby-hub-server-tawny.vercel.app/groups/${params.id}`),
-        Component: UpdateDetails
+        // Component: UpdateDetails
+        element: <PrivateRoute><UpdateDetails /></PrivateRoute>
       }
     ]
   },

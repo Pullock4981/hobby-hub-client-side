@@ -85,7 +85,7 @@ const Register = () => {
 
 
     return (
-        <div className='bg-amber-100 flex justify-center items-center'>
+        <div className='bg-[#E3F0E9] flex justify-center items-center'>
             <div className="card bg-base-100 w-full mx-auto max-w-sm shrink-0 shadow-2xl my-7">
                 <div className="card-body">
                     <form onSubmit={handleSubmit} className="form-control w-full">
@@ -113,7 +113,7 @@ const Register = () => {
                         {/* pattern='/^(?=.*[A-Z])(?=.*[a-z]).{6,}$/' <div className='my-2'><a className="link link-hover">Forgot password?</a></div> */}
                         {/* log in btn */}
                         <div className='flex justify-center items-center'>
-                            <button className="btn btn-block bg-amber-400 font-bold mb-2">Register</button>
+                            <button className="btn btn-block bg-[#2A9261] text-white font-bold mb-2">Register</button>
                         </div>
                         <div>
                             {

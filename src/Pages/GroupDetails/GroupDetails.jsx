@@ -22,30 +22,40 @@ const GroupDetails = () => {
             });
     }, [id]);
 
+    // const handleJoinGroup = () => {
+    //     if (!user) return;
+
+    //     // Optional: Check again if already joined (depends on DB setup)
+
+    //     const joinInfo = {
+    //         groupId: id,
+    //         userEmail: user.email,
+    //         userName: user.displayName,
+    //         joinDate: new Date()
+    //     };
+
+    //     fetch(`https://hobby-hub-server-tawny.vercel.app/groups`, {
+    //         method: "POST",
+    //         headers: { "Content-Type": "application/json" },
+    //         body: JSON.stringify(joinInfo),
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             if (data.insertedId) {
+    //                 setJoined(true);
+    //                 Swal.fire("Joined!", "You have successfully joined the group.", "success");
+    //             }
+    //         });
+    // };
+
     const handleJoinGroup = () => {
-        if (!user) return;
+        if (!user) {
+            Swal.fire("Login Required", "Please log in to join a group.", "info");
+            return;
+        }
 
-        // Optional: Check again if already joined (depends on DB setup)
-
-        const joinInfo = {
-            groupId: id,
-            userEmail: user.email,
-            userName: user.displayName,
-            joinDate: new Date()
-        };
-
-        fetch(`https://hobby-hub-server-tawny.vercel.app/groups`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(joinInfo),
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.insertedId) {
-                    setJoined(true);
-                    Swal.fire("Joined!", "You have successfully joined the group.", "success");
-                }
-            });
+        Swal.fire("Joined!", "You have successfully joined the group.", "success");
+        setJoined(true);
     };
 
     if (loading) return <div className="text-center py-10">Loading...</div>;

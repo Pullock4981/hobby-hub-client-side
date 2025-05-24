@@ -65,14 +65,14 @@ const SliderComponent = () => {
             <div>
                 {
                     window.innerWidth > 768 ?
-                        <Slider {...settings1} className='md:mx-16 mx-2 my-8'>
+                        <Slider {...settings1} className='md:mx-16 mx-2 py-8'>
 
                             {
                                 sliderData.map(sData => <SliderCard key={sData.id} sData={sData}></SliderCard>)
                             }
                         </Slider>
                         :
-                        <Slider {...settings2} className='md:mx-16 mx-2 my-8'>
+                        <Slider {...settings2} className='md:mx-16 mx-2 py-8'>
 
                             {
                                 sliderData.map(sData => <SliderCard key={sData.id} sData={sData}></SliderCard>)

@@ -33,7 +33,11 @@ const AllGroups = () => {
             });
     }, []);
 
-    if (loading) return <div className="text-center mt-10">Loading...</div>;
+    if (loading) return <div className="text-center mt-10"><span className="loading loading-ball loading-xs"></span>
+        <span className="loading loading-ball loading-sm"></span>
+        <span className="loading loading-ball loading-md"></span>
+        <span className="loading loading-ball loading-lg"></span>
+        <span className="loading loading-ball loading-xl"></span></div>;
 
     return (
         <div className="mx-auto bg-[#E3F0E9] px-4 md:px-36 py-6">
