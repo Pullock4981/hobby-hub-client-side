@@ -58,7 +58,11 @@ const GroupDetails = () => {
         setJoined(true);
     };
 
-    if (loading) return <div className="text-center py-10">Loading...</div>;
+    if (loading) return <div className="text-center py-10"><span className="loading loading-ball loading-xs"></span>
+        <span className="loading loading-ball loading-sm"></span>
+        <span className="loading loading-ball loading-md"></span>
+        <span className="loading loading-ball loading-lg"></span>
+        <span className="loading loading-ball loading-xl"></span></div>;
     if (!group) return <p className="text-center">Group not found.</p>;
 
     const isPast = new Date(group.startDate) < new Date();

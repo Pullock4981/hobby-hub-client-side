@@ -172,7 +172,11 @@ const MyGroup = () => {
     };
 
     if (loading) {
-        return <div className="text-center mt-10">Loading your groups...</div>;
+        return <div className="text-center mt-10"><span className="loading loading-ball loading-xs"></span>
+            <span className="loading loading-ball loading-sm"></span>
+            <span className="loading loading-ball loading-md"></span>
+            <span className="loading loading-ball loading-lg"></span>
+            <span className="loading loading-ball loading-xl"></span></div>;
     }
 
     return (
@@ -205,7 +209,7 @@ const MyGroup = () => {
                                     <td>{group.location}</td>
                                     <td>
                                         <Link to={`/updateGroup/${group._id}`}>
-                                            <button className="btn btn-sm bg-yellow-500 text-white mr-2">Update</button>
+                                            <button className="btn btn-sm bg-[#2A9261] text-white mr-2">Update</button>
                                         </Link>
                                         <button
                                             onClick={() => handleDelete(group._id)}
