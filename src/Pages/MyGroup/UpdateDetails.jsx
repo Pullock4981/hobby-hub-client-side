@@ -171,7 +171,7 @@ const UpdateDetails = () => {
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 p-4">
                         <label className="label">Photo URL</label>
-                        <input type="text" name='photo' defaultValue={photo} className="input w-full" required />
+                        <input type="text" name='image' defaultValue={photo} className="input w-full" required />
                     </fieldset>
                     <fieldset className="fieldset bg-base-200 p-4">
                         <label className="label">User Name</label>

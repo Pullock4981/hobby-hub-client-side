@@ -36,7 +36,7 @@ const AllGroups = () => {
                 {groups.map(group => (
                     <div key={group._id} className="card bg-base-100 shadow-xl">
                         <figure>
-                            <img src={group.imageURL} alt={group.groupName} className="w-full h-48 object-cover" />
+                            <img src={group.photo} alt={group.groupName} className="w-full h-48 object-cover" />
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title">{group.groupName}</h2>

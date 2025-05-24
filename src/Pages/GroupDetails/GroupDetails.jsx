@@ -69,7 +69,7 @@ const GroupDetails = () => {
 
     return (
         <div className="max-w-4xl mx-auto p-6 shadow rounded bg-[#E3F0E9] my-6">
-            <img src={group.imageURL} alt="Group" className="w-full h-64 object-cover rounded mb-4" />
+            <img src={group.photo} alt="Group" className="w-full h-64 object-cover rounded mb-4" />
             <h2 className="text-3xl font-bold mb-4">{group.groupName}</h2>
             
             <p><strong>Group Category:</strong> {group.hobbyCategory}</p>
@@ -87,7 +87,7 @@ const GroupDetails = () => {
                 ) : (
                     <button
                         onClick={handleJoinGroup}
-                        className="btn btn-primary"
+                        className="btn bg-[#2A9261] text-white"
                     >
                         Join Group
                     </button>
