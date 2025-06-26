@@ -7,20 +7,18 @@
 
 /* Define your custom theme using CSS variables for DaisyUI */
 :root {
-  --p: #6c8da7;           /* Primary */
-  --pc: #ffffff;          /* Primary content (text on primary) */
+  --p: #6c8da7;      /* Primary */
+  --pc: #ffffff;     /* Primary content (usually white text on primary) */
 
-  --s: #c3adcd;           /* Secondary */
-  --sc: #ffffff;          /* Secondary content */
+  --s: #c3adcd;      /* Secondary */
+  --sc: #ffffff;     /* Secondary content */
 
-  --a: #b98db3;           /* Accent */
-  --ac: #ffffff;          /* Accent content */
+  --a: #b98db3;      /* Accent */
+  --ac: #ffffff;     /* Accent content */
 
-  --n: #f2f5f7;           /* Neutral background (base-100) */
-  --nc: #040506;          /* Neutral content (text) */
+  --b1: #f2f5f7;     /* Background */
+  --bc: #040506;     /* Text */
 
-  --b1: #f2f5f7;          /* Base background (base-100) */
-  --bc: #040506;          /* Base content (text) */
 
   /* Optional semantic colors */
   --info: #6c8da7;
