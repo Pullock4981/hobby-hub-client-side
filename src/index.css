@@ -3,3 +3,51 @@
 @plugin "daisyui" {
     themes: light --default, dark --prefersdark;
 }
+
+
+/* Define your custom theme using CSS variables for DaisyUI */
+:root {
+  --p: #6c8da7;           /* Primary */
+  --pc: #ffffff;          /* Primary content (text on primary) */
+
+  --s: #c3adcd;           /* Secondary */
+  --sc: #ffffff;          /* Secondary content */
+
+  --a: #b98db3;           /* Accent */
+  --ac: #ffffff;          /* Accent content */
+
+  --n: #f2f5f7;           /* Neutral background (base-100) */
+  --nc: #040506;          /* Neutral content (text) */
+
+  --b1: #f2f5f7;          /* Base background (base-100) */
+  --bc: #040506;          /* Base content (text) */
+
+  /* Optional semantic colors */
+  --info: #6c8da7;
+  --success: #86efac;
+  --warning: #facc15;
+  --error: #f87171;
+}
+
+/* Optional: define a dark theme using data-theme attribute */
+[data-theme="dark"] {
+  --p: #6c8da7;
+  --pc: #ffffff;
+
+  --s: #c3adcd;
+  --sc: #ffffff;
+
+  --a: #b98db3;
+  --ac: #ffffff;
+
+  --n: #1a1a1a;
+  --nc: #f2f5f7;
+
+  --b1: #0d0d0d;
+  --bc: #f2f5f7;
+
+  --info: #6c8da7;
+  --success: #22c55e;
+  --warning: #eab308;
+  --error: #dc2626;
+}

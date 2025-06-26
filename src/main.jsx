@@ -19,6 +19,7 @@ import FirebaseAuthProvider from './Contexts/FirebaseAuthProvider';
 import GroupDetails from './Pages/GroupDetails/GroupDetails';
 import UpdateDetails from './Pages/MyGroup/UpdateDetails';
 import PrivateRoute from './Components/Routes/PrivateRoute';
+import DashBoard from './Components/DashBoard/DashBoard';
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        loader: () => fetch('https://hobby-hub-server-tawny.vercel.app/groups'),
+        // loader: () => fetch('https://hobby-hub-server-tawny.vercel.app/groups'),
+        loader: async () => {
+          const res = await fetch("https://hobby-hub-server-tawny.vercel.app/groups"); // Use your actual API
+          return res.json();
+        },
         Component: Home
       },
       {
@@ -66,6 +71,10 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: "/deshBoard",
+    Component: DashBoard
+  }
 ]);
 
 createRoot(document.getElementById('root')).render(
