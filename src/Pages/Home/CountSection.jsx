@@ -26,10 +26,10 @@ const CountSection = () => {
                         key={label}
                         className="p-5 rounded-xl bg-base-100 text-green-500 shadow-md text-center transition-colors duration-300"
                     >
-                        <p className="text-3xl font-bold text-green-400">
+                        <p className="text-3xl font-bold text-[#b98db3]">
                             <CountUp start={0} end={end} duration={5} suffix="+" />
                         </p>
-                        <p className="opacity-80">{label}</p>
+                        <p className="opacity-80 text-[#6c90a7]">{label}</p>
                     </div>
                 ))}
             </div>

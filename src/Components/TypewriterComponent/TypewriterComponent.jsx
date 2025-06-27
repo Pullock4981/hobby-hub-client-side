@@ -5,7 +5,7 @@ const TypewriterComponent = () => {
     return (
         <div className=" mt-4 lg:mt-8 md:text-3xl text-xl font-bold text-center pb-6">
             <span>Meet hobbyists who love&nbsp;</span>
-            <span className="text-red-500 inline-block">
+            <span className="text-[#b98db3] inline-block">
                 <Typewriter
                     words={['Photography', 'Gardening', 'Coding', 'Baking', 'Painting', 'Cycling', 'and More.......']}
                     loop={0}

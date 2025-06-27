@@ -78,12 +78,10 @@ import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../Contexts/AuthContext';
 
 import GroupCard from './GroupCard';
-import Banner from './Banner';
 import SliderComponent from './SliderComponent';
 import HobbyAwesomeReveal from './HobbyAwesomeReveal';
 import CountSection from './CountSection';
 import StaticSectionTwo from './StaticSectionTwo';
-import ThemeToggle from '../../Components/Theme/ThemeToggle';
 
 const Home = () => {
     const groupData = useLoaderData() || [];
@@ -106,11 +104,7 @@ const Home = () => {
     const groups = filteredGroups.slice(0, 6);
 
     return (
-        <div className="bg-base-100 text-base-content min-h-screen transition-colors duration-300">
-            {/* Theme Toggle */}
-            <div className="p-4 flex justify-end">
-                <ThemeToggle />
-            </div>
+        <div className="bg-base-100 text-base-content mt-10">
 
             {/* Hero / Reveal / Slider */}
             <HobbyAwesomeReveal />
@@ -118,6 +112,9 @@ const Home = () => {
 
             {/* Featured Groups Section */}
             <section className="py-10 md:max-w-6xl mx-4 md:mx-auto">
+                {/* <h2 className="text-3xl font-bold text-center text-gradient-to-br from-[#6C8EA7] via-[#c3adcd] to-[#B086AB] mb-6">
+                    Featured Groups
+                </h2> */}
                 <h2 className="text-3xl font-bold text-center mb-6">
                     Featured Groups
                 </h2>

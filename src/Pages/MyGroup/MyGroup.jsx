@@ -60,10 +60,62 @@ const MyGroup = () => {
     }
 
     return (
+        // <div className="max-w-6xl mx-auto px-4 py-6">
+        //     <h2 className="text-3xl font-semibold mb-6">My Created Groups</h2>
+        //     {myGroups.length === 0 ? (
+        //         <p className="">You haven’t created any groups yet.</p>
+        //     ) : (
+        //         <div className="overflow-x-auto">
+        //             <table className="table w-full">
+        //                 <thead className="bg-gray-100">
+        //                     <tr>
+        //                         <th>#</th>
+        //                         <th>Name</th>
+        //                         <th>Hobby</th>
+        //                         <th>Max Members</th>
+        //                         <th>Start Date</th>
+        //                         <th>Location</th>
+        //                         <th>Actions</th>
+        //                     </tr>
+        //                 </thead>
+        //                 <tbody>
+        //                     {myGroups.map((group, index) => (
+        //                         <tr key={group._id}>
+        //                             <td>{index + 1}</td>
+        //                             <td>{group.groupName}</td>
+        //                             <td>{group.hobbyCategory}</td>
+        //                             <td>{group.maxMembers}</td>
+        //                             <td>{group.startDate}</td>
+        //                             <td>{group.location}</td>
+        //                             <td>
+        //                                 <Link to={`/updateGroup/${group._id}`}>
+        //                                     <button className="btn btn-sm bg-[#2A9261] text-white mr-2">Update</button>
+        //                                 </Link>
+        //                                 <button
+        //                                     onClick={() => handleDelete(group._id)}
+        //                                     className="btn btn-sm bg-red-500 text-white"
+        //                                 >
+        //                                     Delete
+        //                                 </button>
+        //                             </td>
+        //                         </tr>
+        //                     ))}
+        //                 </tbody>
+        //             </table>
+        //         </div>
+        //     )}
+        // </div>
         <div className="max-w-6xl mx-auto px-4 py-6">
             <h2 className="text-3xl font-semibold mb-6">My Created Groups</h2>
             {myGroups.length === 0 ? (
-                <p className="text-gray-600">You haven’t created any groups yet.</p>
+                <div className="text-center space-y-4">
+                    <p>You haven’t created any groups yet.</p>
+                    <Link to="/dashboard/createGroup">
+                        <button className="btn bg-[#6C8DA7] text-white">
+                            Create a Group
+                        </button>
+                    </Link>
+                </div>
             ) : (
                 <div className="overflow-x-auto">
                     <table className="table w-full">

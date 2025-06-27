@@ -1,9 +1,66 @@
-// import React from 'react';
+// // import React from 'react';
 
+// import { useEffect, useState } from "react";
+// import { Link } from "react-router";
+// import TypewriterComponent from "../../Components/TypewriterComponent/TypewriterComponent";
+
+
+// const AllGroups = () => {
+//     const [groups, setGroups] = useState([]);
+//     const [loading, setLoading] = useState(true);
+
+//     useEffect(() => {
+//         fetch('https://hobby-hub-server-tawny.vercel.app/groups')
+//             .then(res => res.json())
+//             .then(data => {
+//                 setGroups(data);
+//                 setLoading(false);
+//             })
+//             .catch(err => {
+//                 console.error("Error fetching groups:", err);
+//                 setLoading(false);
+//             });
+//     }, []);
+
+//     if (loading) return <div className="text-center mt-10"><span className="loading loading-ball loading-xs"></span>
+//         <span className="loading loading-ball loading-sm"></span>
+//         <span className="loading loading-ball loading-md"></span>
+//         <span className="loading loading-ball loading-lg"></span>
+//         <span className="loading loading-ball loading-xl"></span></div>;
+
+//     return (
+//         <div className="mx-auto bg-[#E3F0E9] px-4 md:px-36 py-6">
+//             <TypewriterComponent></TypewriterComponent>
+//             {/* <h2 className="text-3xl font-semibold mb-6">All Hobby Groups</h2> */}
+//             <div className="grid gap-6 md:grid-cols-2 mt-4 lg:grid-cols-3">
+//                 {groups.map(group => (
+//                     <div key={group._id} className="card bg-base-100 shadow-xl">
+//                         <figure>
+//                             <img src={group.image} alt={group.groupName} className="w-full h-48 object-cover" />
+//                         </figure>
+//                         <div className="card-body">
+//                             <h2 className="card-title">{group.groupName}</h2>
+//                             <p><strong>Category:</strong> {group.hobbyCategory}</p>
+//                             <p><strong>Location:</strong> {group.location}</p>
+//                             <p><strong>Start Date:</strong> {group.startDate}</p>
+//                             <Link to={`/groupDetails/${group._id}`}>
+//                                 <button className="btn bg-[#2A9261] text-white mt-3 w-full">See More</button>
+//                             </Link>
+//                         </div>
+//                     </div>
+//                 ))}
+//             </div>
+//         </div>
+//     );
+// };
+
+// export default AllGroups;
+
+// import { useEffect, useState } from "react";
+// import { Link } from "react-router-dom"; // ✅ Correct import
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 import TypewriterComponent from "../../Components/TypewriterComponent/TypewriterComponent";
-
+import { Link } from "react-router";
 
 const AllGroups = () => {
     const [groups, setGroups] = useState([]);
@@ -22,29 +79,44 @@ const AllGroups = () => {
             });
     }, []);
 
-    if (loading) return <div className="text-center mt-10"><span className="loading loading-ball loading-xs"></span>
-        <span className="loading loading-ball loading-sm"></span>
-        <span className="loading loading-ball loading-md"></span>
-        <span className="loading loading-ball loading-lg"></span>
-        <span className="loading loading-ball loading-xl"></span></div>;
+    if (loading) {
+        return (
+            <div className="text-center mt-10">
+                <span className="loading loading-ball loading-xs"></span>
+                <span className="loading loading-ball loading-sm"></span>
+                <span className="loading loading-ball loading-md"></span>
+                <span className="loading loading-ball loading-lg"></span>
+                <span className="loading loading-ball loading-xl"></span>
+            </div>
+        );
+    }
 
     return (
-        <div className="mx-auto bg-[#E3F0E9] px-4 md:px-36 py-6">
-            <TypewriterComponent></TypewriterComponent>
-            {/* <h2 className="text-3xl font-semibold mb-6">All Hobby Groups</h2> */}
-            <div className="grid gap-6 md:grid-cols-2 mt-4 lg:grid-cols-3">
+        <div className="mx-auto bg-base-200 text-base-content px-4 md:px-36 py-6 transition-colors duration-300">
+            <TypewriterComponent />
+            <div className="grid gap-6 md:grid-cols-2 mt-4 lg:grid-cols-4">
                 {groups.map(group => (
-                    <div key={group._id} className="card bg-base-100 shadow-xl">
+                    <div key={group._id} className="card bg-base-100 text-base-content shadow-xl">
                         <figure>
-                            <img src={group.image} alt={group.groupName} className="w-full h-48 object-cover" />
+                            <img src={group.image} alt={group.groupName} className="w-full h-36 object-cover" />
                         </figure>
                         <div className="card-body">
-                            <h2 className="card-title">{group.groupName}</h2>
-                            <p><strong>Category:</strong> {group.hobbyCategory}</p>
-                            <p><strong>Location:</strong> {group.location}</p>
-                            <p><strong>Start Date:</strong> {group.startDate}</p>
+                            <h2 className="card-title dark:text-white">{group.groupName}</h2>
+                            <div className="flex justify-between">
+                                <p className=" dark:text-gray-300">
+                                    <strong>Category:</strong> {group.hobbyCategory}
+                                </p>
+                                <p className=" dark:text-gray-300">
+                                    <strong>Location:</strong> {group.location}
+                                </p>
+                            </div>
+                            <p className=" dark:text-gray-300">
+                                <strong>Start Date:</strong> {group.startDate}
+                            </p>
                             <Link to={`/groupDetails/${group._id}`}>
-                                <button className="btn bg-[#2A9261] text-white mt-3 w-full">See More</button>
+                                <button className="btn bg-[#6C8EA7] text-white mt-3 w-full">
+                                    See More
+                                </button>
                             </Link>
                         </div>
                     </div>
@@ -55,3 +127,4 @@ const AllGroups = () => {
 };
 
 export default AllGroups;
+

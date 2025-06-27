@@ -11,7 +11,7 @@ const StaticSectionTwo = () => (
         </p>
         <Link
             to={'/createGroup'}
-            className="btn mt-4 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-focus transition"
+            className="btn mt-4 px-6 py-2 bg-[#6C8EA7] text-white rounded-lg transition"
         >
             Create Group
         </Link>

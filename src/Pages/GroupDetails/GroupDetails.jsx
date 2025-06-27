@@ -1,10 +1,7 @@
-// import React from 'react';
-
 import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { AuthContext } from "../../Contexts/AuthContext";
 import Swal from "sweetalert2";
-
 
 const GroupDetails = () => {
     const { id } = useParams();
@@ -15,14 +12,13 @@ const GroupDetails = () => {
 
     useEffect(() => {
         fetch(`https://hobby-hub-server-tawny.vercel.app/groups/${id}`)
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
                 setGroup(data);
                 setLoading(false);
             });
     }, [id]);
 
-   
     const handleJoinGroup = () => {
         if (!user) {
             Swal.fire("Login Required", "Please log in to join a group.", "info");
@@ -33,36 +29,58 @@ const GroupDetails = () => {
         setJoined(true);
     };
 
-    if (loading) return <div className="text-center py-10"><span className="loading loading-ball loading-xs"></span>
-        <span className="loading loading-ball loading-sm"></span>
-        <span className="loading loading-ball loading-md"></span>
-        <span className="loading loading-ball loading-lg"></span>
-        <span className="loading loading-ball loading-xl"></span></div>;
-    if (!group) return <p className="text-center">Group not found.</p>;
+    if (loading) {
+        return (
+            <div className="text-center py-10">
+                <span className="loading loading-ball loading-xs"></span>
+                <span className="loading loading-ball loading-sm"></span>
+                <span className="loading loading-ball loading-md"></span>
+                <span className="loading loading-ball loading-lg"></span>
+                <span className="loading loading-ball loading-xl"></span>
+            </div>
+        );
+    }
+
+    if (!group)
+        return <p className="text-center text-base-content">Group not found.</p>;
 
     const isPast = new Date(group.startDate) < new Date();
 
     return (
-        <div className="max-w-4xl mx-auto p-6 shadow rounded bg-[#E3F0E9] my-6">
-            <img src={group.image} alt="Group" className="w-full h-64 object-cover rounded mb-4" />
+        <div className="max-w-4xl mx-auto p-6 shadow rounded bg-base-200 text-base-content my-6 transition-colors duration-300">
+            <img
+                src={group.image}
+                alt="Group"
+                className="w-full h-64 object-cover rounded mb-4"
+            />
             <h2 className="text-3xl font-bold mb-4">{group.groupName}</h2>
-            
-            <p><strong>Group Category:</strong> {group.hobbyCategory}</p>
-            <p><strong>Description:</strong> {group.description}</p>
-            <p><strong>Location:</strong> {group.location}</p>
-            <p><strong>Max Members:</strong> {group.maxMembers}</p>
-            <p><strong>Start Date:</strong> {group.startDate}</p>
-            <p><strong>Created by:</strong> {group.userName} ({group.userEmail})</p>
+
+            <div className="space-y-1">
+                <div className="flex justify-between flex-col md:flex-row">
+                    <div>
+                        <p><strong>Group Category:</strong> {group.hobbyCategory}</p>
+                    </div>
+                    <div>
+                        <p><strong>Location:</strong> {group.location}</p>
+                    </div>
+                </div>
+                <div className="flex justify-between flex-col md:flex-row">
+                    <p><strong>Max Members:</strong> {group.maxMembers}</p>
+                    <p><strong>Start Date:</strong> {group.startDate}</p>
+                </div>
+                <p><strong>Description:</strong> {group.description}</p>
+                <p><strong>Created by:</strong> {group.userName} ({group.userEmail})</p>
+            </div>
 
             <div className="mt-6">
                 {isPast ? (
-                    <p className="text-red-500 font-semibold">This group is no longer active.</p>
+                    <p className="text-error font-semibold">This group is no longer active.</p>
                 ) : joined ? (
-                    <p className="text-green-600 font-semibold">You have already joined this group.</p>
+                    <p className="text-success font-semibold">You have already joined this group.</p>
                 ) : (
                     <button
                         onClick={handleJoinGroup}
-                        className="btn bg-[#2A9261] text-white"
+                        className="btn bg-[#6C8EA7] text-white hover:bg-[#257c53]"
                     >
                         Join Group
                     </button>

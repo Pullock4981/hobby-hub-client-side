@@ -20,6 +20,7 @@ import GroupDetails from './Pages/GroupDetails/GroupDetails';
 import UpdateDetails from './Pages/MyGroup/UpdateDetails';
 import PrivateRoute from './Components/Routes/PrivateRoute';
 import DashBoard from './Components/DashBoard/DashBoard';
+import DashboardHome from './Components/DashBoard/DashboardHome';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,6 @@ const router = createBrowserRouter([
       {
         index: true,
         path: "/",
-        // loader: () => fetch('https://hobby-hub-server-tawny.vercel.app/groups'),
         loader: async () => {
           const res = await fetch("https://hobby-hub-server-tawny.vercel.app/groups"); // Use your actual API
           return res.json();
@@ -40,15 +40,6 @@ const router = createBrowserRouter([
       {
         path: "/allGroup",
         Component: AllGroups
-      },
-      {
-        path: "/createGroup",
-        // Component: CreateGroup
-        element: <PrivateRoute><CreateGroup /></PrivateRoute>
-      },
-      {
-        path: "/myGroup",
-        element: <PrivateRoute><MyGroup /></PrivateRoute>
       },
       {
         path: "/login",
@@ -71,10 +62,37 @@ const router = createBrowserRouter([
       }
     ]
   },
+
   {
-    path: "/deshBoard",
-    Component: DashBoard
+    path: '/dashboard',
+    element: <PrivateRoute><DashBoard /></PrivateRoute>,
+    children: [
+      {
+        index: true,
+        element: <DashboardHome />,
+        loader: async () => {
+          const res = await fetch('https://hobby-hub-server-tawny.vercel.app/groups');
+          return res.json();
+        },
+        hydrateFallbackElement: <h1>Loading...</h1>,
+      },
+      {
+        path: 'createGroup', // ✅ relative path
+        element: <CreateGroup />
+      },
+      {
+        path: "myGroup", // ✅ Relative path
+        element: <MyGroup />,
+        loader: async () => {
+          const res = await fetch('https://hobby-hub-server-tawny.vercel.app/groups');
+          return res.json();
+        },
+        hydrateFallbackElement: <h1>Loading...</h1>,
+      },
+
+    ]
   }
+
 ]);
 
 createRoot(document.getElementById('root')).render(
