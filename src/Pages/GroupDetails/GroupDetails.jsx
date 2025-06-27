@@ -47,11 +47,11 @@ const GroupDetails = () => {
     const isPast = new Date(group.startDate) < new Date();
 
     return (
-        <div className="max-w-4xl mx-auto p-6 shadow rounded bg-base-200 text-base-content my-6 transition-colors duration-300">
+        <div className="max-w-4xl mx-auto p-4 shadow rounded bg-base-200 text-base-content my-6 transition-colors duration-300">
             <img
                 src={group.image}
                 alt="Group"
-                className="w-full h-64 object-cover rounded mb-4"
+                className="w-full h-40 bg-cover object-cover rounded mb-2"
             />
             <h2 className="text-3xl font-bold mb-4">{group.groupName}</h2>
 

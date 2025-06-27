@@ -62,23 +62,29 @@ const Register = () => {
 
     return (
         <div className="flex justify-center items-center py-10 bg-base-200 ">
-            <div className="card bg-base-100 w-full max-w-sm shadow-2xl">
+            <div className="card bg-base-100 w-full md:mx-60 mx-4 shadow-2xl">
                 <div className="card-body">
                     <form onSubmit={handleSubmit} className="form-control w-full">
                         <h1 className="text-xl md:text-3xl text-center mb-3 font-bold">Please Register</h1>
 
-                        <label className="label text-inherit">Name</label>
-                        <input type="text" className="input input-bordered" name="name" placeholder="Your Name" required />
+                        <div className="flex flex-col gap-4">
+                            <div className="flex justify-between flex-col md:flex-row gap-4">
+                                <label className="label text-inherit">Name</label>
+                                <input type="text" className="input input-bordered" name="name" placeholder="Your Name" required />
 
-                        <label className="label text-inherit">Photo URL</label>
-                        <input type="text" className="input input-bordered" name="photoURL" placeholder="Photo URL" required />
+                                <label className="label text-inherit">Photo URL</label>
+                                <input type="text" className="input input-bordered" name="photoURL" placeholder="Photo URL" required />
 
-                        <label className="label text-inherit">Email</label>
-                        <input type="email" className="input input-bordered" name="email" placeholder="Email" required />
+                            </div>
+                            <div className="flex justify-between flex-col md:flex-row gap-4">
+                                <label className="label text-inherit">Email</label>
+                                <input type="email" className="input input-bordered" name="email" placeholder="Email" required />
 
-                        <label className="label text-inherit">Password</label>
-                        <input type="password" className="input input-bordered mb-2" name="password" placeholder="Password" required />
+                                <label className="label text-inherit">Password</label>
+                                <input type="password" className="input input-bordered mb-2" name="password" placeholder="Password" required />
 
+                            </div>
+                        </div>
                         {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
 
                         <button

@@ -21,6 +21,7 @@ import UpdateDetails from './Pages/MyGroup/UpdateDetails';
 import PrivateRoute from './Components/Routes/PrivateRoute';
 import DashBoard from './Components/DashBoard/DashBoard';
 import DashboardHome from './Components/DashBoard/DashboardHome';
+import Profile from './Pages/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -88,6 +89,10 @@ const router = createBrowserRouter([
           return res.json();
         },
         hydrateFallbackElement: <h1>Loading...</h1>,
+      },
+      {
+        path: "profile",
+        element: <Profile></Profile>
       },
 
     ]

@@ -152,6 +152,12 @@ const DashBoard = () => {
                             </NavLink>
                         </li>
                         <li>
+                            <NavLink to="/dashboard/profile" onClick={() => document.getElementById('my-drawer-2').checked = false}
+                                className={({ isActive }) => isActive ? "text-[white] bg-[#6C8EA7] font-bold" : "text-secondary"}>
+                                <FaUserFriends className="inline-block mr-2" /> My Profile
+                            </NavLink>
+                        </li>
+                        <li>
                             <NavLink to="/dashboard/createGroup" onClick={() => document.getElementById('my-drawer-2').checked = false}
                                 className={({ isActive }) => isActive ? "text-[white] bg-[#6C8EA7] font-bold" : "text-secondary"}>
                                 <FaPlusCircle className="inline-block mr-2" /> Create Group
